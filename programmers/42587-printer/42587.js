@@ -1,21 +1,24 @@
 function solution(priorities, location) {
-  var answer = 0;
-  let count = 0;
-
-  priorities.sort((a, b) => {
-    if (b - a < 0) {
+  let counter = 0;
+  const printItems = priorities.map((priority, index) => {
+    if (index === location) {
+      return { priority, isFindItem: true };
     }
 
-    return b - a;
+    return { priority, isFindItem: false };
   });
 
-  console.log(priorities);
-
-  console.log(answer);
-  return answer;
+  while (printItems.length > 0) {
+    const currentItem = printItems.shift();
+    if (
+      printItems.some((printItem) => printItem.priority > currentItem.priority)
+    ) {
+      printItems.push(currentItem);
+    } else {
+      counter++;
+      if (currentItem.isFindItem) {
+        return counter;
+      }
+    }
+  }
 }
-
-const priorities = [2, 1, 3, 2];
-const location = 2;
-
-solution(priorities, location);

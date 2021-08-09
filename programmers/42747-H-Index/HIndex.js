@@ -1,19 +1,11 @@
 function solution(citations) {
-  let answer = 1;
+  let i = 0;
 
-  citations.sort((a, b) => a - b);
+  citations.sort((a, b) => b - a);
 
-  citations.forEach((citation) => {
-    const citationsCount = citations.filter((e) => e >= citation).length;
+  while (i + 1 <= citations[i]) {
+    i++;
+  }
 
-    if (citationsCount > answer) {
-      answer = citationsCount;
-    }
-
-    if (citationsCount >= citation) {
-      answer = citation;
-    }
-  });
-
-  return answer;
+  return i;
 }

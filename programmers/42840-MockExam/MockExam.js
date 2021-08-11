@@ -10,7 +10,7 @@ function solution(answers) {
 
   answers.forEach((answer, answerIndex) => {
     methods.forEach((method, methodIndex) => {
-      if (method[answerIndex] === answer) {
+      if (method[answerIndex % method.length] === answer) {
         counts[methodIndex]++;
       }
     });
@@ -20,7 +20,6 @@ function solution(answers) {
 
   counts.forEach((count, index) => {
     if (count === maxCount) {
-      console.log(count, maxCount);
       results.push(index + 1);
     }
   });
@@ -28,5 +27,5 @@ function solution(answers) {
   return results;
 }
 
-const answers = [1, 2, 3, 4, 5];
+const answers = [5, 5, 5, 1, 4, 1];
 solution(answers);

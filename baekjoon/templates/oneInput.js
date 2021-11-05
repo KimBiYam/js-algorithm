@@ -1,25 +1,18 @@
-function solution(input) {
-  console.log(input);
-}
-
 const readline = require("readline");
 
 const rl = readline.createInterface({
   input: process.stdin,
-
   output: process.stdout,
 });
 
-let input;
+const solution = (line) => {
+  console.log(line);
+};
 
-rl.on("line", function (line) {
-  input = line;
-
-  input = parseInt(line);
+rl.on("line", (line) => {
+  solution(line);
 
   rl.close();
-}).on("close", function () {
-  solution(input);
-
+}).on("close", () => {
   process.exit();
 });

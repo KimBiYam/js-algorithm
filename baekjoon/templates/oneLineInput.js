@@ -6,11 +6,7 @@ const rl = readline.createInterface({
 });
 
 const solution = (line) => {
-  const numbers = line.split(" ");
-
-  const result = numbers.reduce((total, number) => total + Number(number), 0);
-
-  console.log(result);
+  console.log(line);
 };
 
 rl.on("line", (line) => {

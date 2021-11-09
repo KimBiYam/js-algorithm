@@ -10,7 +10,7 @@ const solution = (input) => {
 
   const numberCount = Number(input[0]);
   const numbers = input[1].split(" ").map((number) => Number(number));
-  const operators = input[2].split(" ").map((number) => Number(number));
+  const operators = input[2].split(" ").map((operator) => Number(operator));
 
   let max = -MAXIMUM_VALUE;
   let min = MAXIMUM_VALUE;

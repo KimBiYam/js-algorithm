@@ -5,10 +5,6 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const solution = (line) => {
-  console.log(line);
-};
-
 rl.on("line", (line) => {
   solution(line);
 
@@ -16,3 +12,7 @@ rl.on("line", (line) => {
 }).on("close", () => {
   process.exit();
 });
+
+const solution = (line) => {
+  console.log(line);
+};

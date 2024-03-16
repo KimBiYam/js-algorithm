@@ -13,32 +13,44 @@ rl.on("line", (line) => {
   process.exit();
 });
 
-const solution = (line) => {
-  const counter = {};
-  let max = 0;
-  let result;
+const solution = (word) => {
+  let count = 0;
 
-  for (let i = 0; i < line.length; i++) {
-    const current = line[i].toUpperCase();
-    counter[current] = (counter[current] ?? 0) + 1;
+  for (let i = 0; i < word.length; i++) {
+    count++;
 
-    if (counter[current] > max) {
-      max = counter[current];
-      result = current;
+    if (word[i] === "c") {
+      if (word[i + 1] === "=" || word[i + 1] === "-") {
+        count--;
+      }
+    }
+
+    if (word[i] === "d") {
+      if (word[i + 1] === "-") {
+        count--;
+      }
+
+      if (word[i + 1] === "z" && word[i + 2] === "=") {
+        count -= 2;
+      }
+    }
+
+    if (word[i] === "l" && word[i + 1] === "j") {
+      count--;
+    }
+
+    if (word[i] === "n" && word[i + 1] === "j") {
+      count--;
+    }
+
+    if (word[i] === "s" && word[i + 1] === "=") {
+      count--;
+    }
+
+    if (word[i - 1] !== "d" && word[i] === "z" && word[i + 1] === "=") {
+      count--;
     }
   }
 
-  let maxKeys = 0;
-  for (const key in counter) {
-    if (counter[key] === max) {
-      maxKeys++;
-    }
-
-    if (maxKeys > 1) {
-      console.log("?");
-      return;
-    }
-  }
-
-  console.log(result);
+  console.log(count);
 };
